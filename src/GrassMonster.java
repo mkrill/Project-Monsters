@@ -2,8 +2,7 @@
 public class GrassMonster extends Monster {
 
 	public GrassMonster(String name) {
-		super(name);
-		this.type = "grass";
+		super(name, "grass");
 	}
 
 	@Override

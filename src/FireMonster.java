@@ -2,8 +2,7 @@
 public class FireMonster extends Monster {
 
 	public FireMonster(String name) {
-		super(name);
-		this.type = "fire";
+		super(name, "fire");
 	}
 
 	@Override

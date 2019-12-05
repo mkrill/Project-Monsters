@@ -17,7 +17,7 @@ public abstract class Monster {
 	}
 
 	// Constructor with randomly generated life and damage values
-	public Monster(String name) {
+	public Monster(String name, String type) {
 		super();
 
 		int fileRange = 50;
@@ -26,7 +26,7 @@ public abstract class Monster {
 		this.name = name;
 		this.life = (int) (Math.random() * fileRange) + 1;
 		this.damage = (int) ((Math.random() * damageRange) + 1) * 2; // "*2" to get even values
-		this.type = "normal";
+		this.type = type;
 	}
 
 	protected void takeHit(int damage) {

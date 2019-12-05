@@ -30,38 +30,39 @@ public class Arena {
 	public static void main(String[] args) {
 
 		// Init ArrayList with Monstertypes available
-		ArrayList<String> mTypes = new ArrayList<String>(3);
-		mTypes.add("fire");
-		mTypes.add("water");
-		mTypes.add("grass");
+		ArrayList<String> mTypesAvailable = new ArrayList<String>(3);
+		mTypesAvailable.add("fire");
+		mTypesAvailable.add("water");
+		mTypesAvailable.add("grass");
 
 		// Request type of players monster
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Which Monster would you like to have?");
 		System.out.println("fire, grass, or water");
-		String mType = sc.nextLine();
+		String playersMType = sc.nextLine();
 
 		// Request name of Players monster
 		System.out.println("Which name should the monster have?");
-		String mName = sc.nextLine();
+		String playersMName = sc.nextLine();
 		sc.close();
 
 		Monster pMon = null;
 
 		try {
-			pMon = createMonster(mName, mType);
+			pMon = createMonster(playersMName, playersMType);
 		} catch (IllegalArgumentException e) {
 			System.err.println(e.getMessage());
 		}
 
+		// if players monster was created
 		if (pMon != null) {
 
 			System.out.println();
 
 			// Remove players monster type from the list of available types
-			mTypes.remove(mType);
+			mTypesAvailable.remove(playersMType);
 			// Randomly create computer monster
-			Monster cMon = createMonster("Computer-Monster", mTypes.get((int) (Math.random() * mTypes.size())));
+			Monster cMon = createMonster("Computer-Monster", mTypesAvailable.get((int) (Math.random() * mTypesAvailable.size())));
 
 			// while both monsters live
 			while (pMon.getLife() > 0 && cMon.getLife() > 0) {
@@ -72,6 +73,7 @@ public class Arena {
 
 				System.out.println(pMon.getName() + " greift " + cMon.getName() + " an.");
 				cMon.takeHit(pMon);
+				System.out.println();
 
 				if (cMon.getLife() > 0) {
 					System.out.println(cMon.getName() + " greift " + pMon.getName() + " an.");

@@ -2,8 +2,7 @@
 public class WaterMonster extends Monster {
 
 	public WaterMonster(String name) {
-		super(name);
-		this.type = "water";
+		super(name, "water");
 	}
 
 	@Override
