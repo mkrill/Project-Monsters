@@ -4,6 +4,7 @@ public class FireMonster extends Monster {
 	public FireMonster(String name) {
 		super(name, "fire");
 	}
+	
 
 	@Override
 	public void takeHit(Monster attacker) {
